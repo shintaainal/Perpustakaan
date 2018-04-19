@@ -3,10 +3,17 @@ package FirstClass.Perpustakaan;
 import java.util.Map;
 
 public class Perpustakaan {
-	private String namaPerpustakaan;
 
 	private Map<String, Book> daftarBuku;
+	private Map<String, Peminjam> daftarPinjam;
 
+	public Map<String, Peminjam> getDaftarPinjam(){
+		return daftarPinjam;
+	}
+	public void setDaftarPinjam(Map<String, Peminjam> daftarPinjam){
+		this.daftarPinjam = daftarPinjam;
+
+	}
 	public Map<String, Book> getDaftarBuku() {
 		return daftarBuku;
 	}
@@ -14,14 +21,5 @@ public class Perpustakaan {
 	public void setDaftarBuku(Map<String, Book> daftarBuku) {
 		this.daftarBuku = daftarBuku;
 	}
-
-	public String getNamaPerpustakaan() {
-		return namaPerpustakaan;
 	}
 
-	public void setNamaPerpustakaan(String namaPerpustakaan) {
-
-		this.namaPerpustakaan = namaPerpustakaan;
-	}
-
-}

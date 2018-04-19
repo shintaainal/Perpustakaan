@@ -19,7 +19,8 @@ public class MainPerpustakaan {
 		System.out.println("WELCOME, tambah data?");
 		String isTambah = input.next();
 
-		if(isTambah.equals("y")){
+		//Tambah data
+		if (isTambah.equals("y")) {
 			while (isTambah.equals("y")) {
 				System.out.println(" ***********************************************************");
 				System.out.println(" Tambah Data Buku ! ");
@@ -31,25 +32,26 @@ public class MainPerpustakaan {
 				System.out.print(" Pengarang : ");
 				book.setAuthor(input.next());
 
-				//
 				System.out.print(" No ISBN : ");
 				daftarBuku.put(input.next(), book);
 
-				System.out.print(" Tambah data baru kembali ?(jawab dengan true/false : ");
+				System.out.print(" Tambah data baru kembali ?(jawab dengan y/t : ");
 				isTambah = input.next();
 
 			}
 
-		for (Map.Entry<String, Book> entry : daftarBuku.entrySet()) {
-			System.out.println(entry.getKey());
-			Book buku = entry.getValue();
-			System.out.println(" Judul  Buku : " + buku.getTitle() + "  penarang " + buku.getAuthor());
+			for (Map.Entry<String, Book> entry : daftarBuku.entrySet()) {
+				System.out.println(entry.getKey());
+				Book buku = entry.getValue();
+				System.out.println(" Judul  Buku : " + buku.getTitle() + "  penarang " + buku.getAuthor());
 			}
-		}else{
-				System.out.println("THANK YOU");
+		} else {
+			System.out.println("THANK YOU");
 		}
 
-		String  Hapus;
+		//HAPUS
+
+		String Hapus;
 
 		System.out.println(" ***********************************************************");
 		System.out.println("Hapus buku? ");
@@ -62,8 +64,6 @@ public class MainPerpustakaan {
 			System.out.println("Masukan ISBN: ");
 			daftarBuku.remove(input.next());
 
-			System.out.println("TEST");
-
 			for (Map.Entry<String, Book> entry : daftarBuku.entrySet()) {
 				System.out.println(entry.getKey());
 				Book buku = entry.getValue();
@@ -74,5 +74,45 @@ public class MainPerpustakaan {
 		}
 		System.out.println("____________________________________________________________________ ");
 
+		//UPDATE
+
+		System.out.println("Update Data? ");
+		String upd = input.next();
+
+		while (upd.equals("y")) {
+
+			//Print data sebelumnya
+			System.out.println("Data Sebelumnya: ");
+			for (Map.Entry<String, Book> entry : daftarBuku.entrySet()) {
+				System.out.println(entry.getKey());
+				Book buku = entry.getValue();
+				System.out.println(" Judul  Buku : " + buku.getTitle() + "  pengarang " + buku.getAuthor());
+			}
+			System.out.println("");
+			System.out.println("____________________________________________________________________ ");
+			System.out.println("");
+
+			//Update data
+			System.out.println("Pilih ISBN data update : ");
+			daftarBuku.put(input.next(), book);
+
+			System.out.print(" Judul Buku : ");
+			book.setTitle(input.next());
+
+			System.out.print(" Pengarang : ");
+			book.setAuthor(input.next());
+
+			System.out.print(" Update lagi?(jawab dengan y/t : ");
+			upd = input.next();
+
+			System.out.println("____________________________________________________________________ ");
+			System.out.println("Data Baru ");
+			for (Map.Entry<String, Book> entry : daftarBuku.entrySet()) {
+				System.out.println(entry.getKey());
+				Book buku = entry.getValue();
+				System.out.println(" Judul  Buku : " + buku.getTitle() + "  pengarang " + buku.getAuthor());
+
+			}
+		}
 	}
 }

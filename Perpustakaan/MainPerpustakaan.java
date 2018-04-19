@@ -1,6 +1,7 @@
 package FirstClass.Perpustakaan;
 
 import org.omg.PortableInterceptor.ServerRequestInfo;
+import sun.security.util.Pem;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -158,14 +159,40 @@ public class MainPerpustakaan {
     }
 
     public void pinjamBuku(){
-
+        System.out.println("____________________________________________________________________ ");
         System.out.println("Apakah ada yang mau pinjam buku? y/t");
         String isi = input.next();
 
-        if(isi.equals("y")){
 
+        if(isi.equals("y")){
+            Peminjam pinjam2 = new Peminjam();
+            System.out.println("Masukan ID Peminjam :");
+            pinjam2 = daftarPinjam.get(input.next());
+            System.out.println("Nama   : " + pinjam2.getNamaPeminjam());
+            System.out.println("Alamat : "  + (pinjam2).getAlamatPeminjam());
+
+
+        }else {
+            System.out.println("THANK YOU");
         }
-    }
+            Book book = new Book();
+            System.out.println("Masukan ISBN Buku : ");
+            book = daftarBuku.get(input.next());
+            System.out.println("Judul Buku  : " + book.getTitle());
+            System.out.println("Pengarang   :" + book.getAuthor());
+
+            System.out.println("");
+            System.out.println("Pinjam buku ini? y/t");
+            String pjm = input.next();
+
+            /*if (pjm.equals("y")) {
+                   daftarPinjam.put(book.getTitle());
+
+
+            } else {
+
+            }*/
+        }
 
     public static void main(String[] args) {
 
@@ -175,6 +202,7 @@ public class MainPerpustakaan {
         obj.hapusDataBuku();
         obj.updateDataBuku();
         obj.tambahDataPeminjam();
+        obj.pinjamBuku();
     }
 }
 

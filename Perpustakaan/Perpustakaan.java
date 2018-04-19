@@ -6,6 +6,15 @@ public class Perpustakaan {
 
 	private Map<String, Book> daftarBuku;
 	private Map<String, Peminjam> daftarPinjam;
+	private Map<String, Book> bukuPinjaman;
+
+	//public Map<String, Peminjam> getBukuPinjaman() {
+	//	return bukuPinjaman;
+	//}
+
+	//public void setBukuPinjaman(Map<String, Peminjam> bukuPinjaman) {
+	//	this.bukuPinjaman = bukuPinjaman;
+//	}
 
 	public Map<String, Peminjam> getDaftarPinjam(){
 		return daftarPinjam;

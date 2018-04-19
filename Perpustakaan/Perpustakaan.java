@@ -1,20 +1,25 @@
 package FirstClass.Perpustakaan;
 
+import sun.security.util.Pem;
+
 import java.util.Map;
 
 public class Perpustakaan {
 
+	//Book buku = new Book();
+
 	private Map<String, Book> daftarBuku;
 	private Map<String, Peminjam> daftarPinjam;
-	private Map<String, Book> bukuPinjaman;
+	private Map<String, Book> bukuDiPinjam;
 
-	//public Map<String, Peminjam> getBukuPinjaman() {
-	//	return bukuPinjaman;
-	//}
 
-	//public void setBukuPinjaman(Map<String, Peminjam> bukuPinjaman) {
-	//	this.bukuPinjaman = bukuPinjaman;
-//	}
+	public Map<String, Book> getBukuDiPinjam() {
+		return bukuDiPinjam;
+	}
+
+	public void setBukuDiPinjam(Map<String, Book> bukuDiPinjam) {
+		this.bukuDiPinjam = bukuDiPinjam;
+	}
 
 	public Map<String, Peminjam> getDaftarPinjam(){
 		return daftarPinjam;

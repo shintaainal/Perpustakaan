@@ -6,18 +6,19 @@ public class Peminjam {
 
     private String idPeminjam, namaPeminjam, alamatPeminjam;
 
+
+    public String getIdPeminjam() {
+        return idPeminjam;
+    }
+
+    private Map<String, Book> daftarBuku;
+
     public Map<String, Book> getDaftarBuku() {
         return daftarBuku;
     }
 
     public void setDaftarBuku(Map<String, Book> daftarBuku) {
         this.daftarBuku = daftarBuku;
-    }
-
-    private Map<String, Book> daftarBuku;
-
-    public String getIdPeminjam() {
-        return idPeminjam;
     }
 
     public void setIdPeminjam(String idPeminjam) {

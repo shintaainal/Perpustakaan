@@ -1,19 +1,19 @@
 package FirstClass.Perpustakaan;
-
 import org.omg.PortableInterceptor.ServerRequestInfo;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class MainPerpustakaan {
-    boolean isHapus = true;
-    Scanner input = new Scanner(System.in);
-    Perpustakaan perpus = new Perpustakaan();
-    Map<String, Book> daftarBuku = new LinkedHashMap<String, Book>();
-    Book book = new Book();
+public class MainPerpustakaan2{
+    public static void main(String[] args) {
 
-    public void isiDataBuku() {
+        boolean isHapus = true;
+        Scanner input = new Scanner(System.in);
+        Perpustakaan perpus = new Perpustakaan();
+
+
+        Map<String, Book> daftarBuku = new LinkedHashMap<String, Book>();
 
         System.out.println("WELCOME, tambah data?");
         String isTambah = input.next();
@@ -47,13 +47,15 @@ public class MainPerpustakaan {
         } else {
             System.out.println("THANK YOU");
         }
-    }
 
-    public void hapusDataBuku() {
+        //HAPUS
+
         String Hapus;
 
         System.out.println(" ***********************************************************");
         System.out.println("Hapus buku? ");
+
+        Book book = new Book();
 
         Hapus = input.next();
 
@@ -70,9 +72,8 @@ public class MainPerpustakaan {
             System.out.println("Data tidak ditemukan!");
         }
         System.out.println("____________________________________________________________________ ");
-    }
 
-    public void updateDataBuku(){
+        //UPDATE
 
         System.out.println("Update Data? ");
         String upd = input.next();
@@ -112,14 +113,5 @@ public class MainPerpustakaan {
 
             }
         }
-    }
-    public static void main(String[] args) {
-
-        MainPerpustakaan obj = new MainPerpustakaan();
-
-        obj.isiDataBuku();
-        obj.hapusDataBuku();
-        obj.updateDataBuku();
-        
     }
 }

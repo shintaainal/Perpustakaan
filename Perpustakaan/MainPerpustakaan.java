@@ -20,8 +20,6 @@ public class MainPerpustakaan {
     Map<String, Book> bukuDipinjam = new LinkedHashMap<String, Book>();
 
 
-
-
     Book book = new Book();
 
     public void isiDataBuku() {
@@ -55,7 +53,7 @@ public class MainPerpustakaan {
                 Book buku = entry.getValue();
                 System.out.println(" Judul  Buku : " + buku.getTitle() + "  pengarang " + buku.getAuthor());
             }
-            System.out.println(" ====================== SELESAI ======================");
+
         } else {
             System.out.println("THANK YOU");
         }
@@ -81,7 +79,6 @@ public class MainPerpustakaan {
         } else {
             System.out.println("Ok terimaKasih");
         }
-        System.out.println(" ====================== DATA DIPERBAHARUI ======================");
     }
 
     public void updateDataBuku() {
@@ -175,56 +172,56 @@ public class MainPerpustakaan {
 
         Peminjam pinjam2 = new Peminjam();
         if (isi.equals("y")) {
-            System.out.println("Masukan ID Peminjam :");
-            pinjam2 = daftarPinjam.get(input.next());
-            System.out.println("Nama   : " + pinjam2.getNamaPeminjam());
-            System.out.println("Alamat : " + (pinjam2).getAlamatPeminjam());
+            while (isi.equals("y")) {
+                System.out.println("Masukan ID Peminjam :");
+                pinjam2 = daftarPinjam.get(input.next());
+                System.out.println("Nama   : " + pinjam2.getNamaPeminjam());
+                System.out.println("Alamat : " + (pinjam2).getAlamatPeminjam());
+
+
+                System.out.println(" ====================== PILIH DATA ======================");
+
+                System.out.println("Masukan ISBN Buku : ");
+                String isbn = input.next();
+                book = daftarBuku.get(isbn);
+                System.out.println("Judul Buku  : " + book.getTitle());
+                System.out.println("Pengarang   :" + book.getAuthor());
+
+                System.out.println("");
+                System.out.println("Pinjam buku ini? y/t");
+                String pjm = input.next();
+                if (pjm.equals("y")) {
+                    bukuDipinjam.put(isbn, book);
+
+                    for (Map.Entry<String, Book> entry : bukuDipinjam.entrySet()) {
+                        System.out.println(entry.getKey());
+                        Book book1 = entry.getValue();
+                        System.out.println(" judul  : " + book1.getTitle() + "  Pengarang :" + book1.getAuthor());
+                    }
+
+                    System.out.println();
+                    System.out.println("======================== DATA PINJAMAN ===========================");
+                    System.out.println();
+
+                    pinjam2.setDaftarBuku(bukuDipinjam);
+
+                    System.out.println("Nama   : " + pinjam2.getNamaPeminjam());
+                    System.out.println("Alamat : " + (pinjam2).getAlamatPeminjam());
+
+                    Book book1 = bukuDipinjam.get(isbn);
+                    System.out.println("Judul  : " + book1.getTitle());
+                    System.out.println("Pengarang : " + book1.getAuthor());
+
+                } else {
+                    System.out.println("Tidak Jadi Pinjam");
+                }
+                System.out.println("Pinjam buku lain?");
+                isi = input.next();
+            }
         } else {
             System.out.println("THANK YOU");
         }
-
-        System.out.println(" ====================== PILIH DATA ======================");
-        String pjm2 =input.next();
-
-        Book book = new Book();
-        System.out.println("Masukan ISBN Buku : ");
-        String isbn = input.next();
-        book = daftarBuku.get(isbn);
-        System.out.println("Judul Buku  : " + book.getTitle());
-        System.out.println("Pengarang   :" + book.getAuthor());
-
-        System.out.println("");
-        System.out.println("Pinjam buku ini? y/t");
-        String pjm = input.next();
-        if(pjm.equals("y")) {
-
-
-            bukuDipinjam.put(isbn, book);
-
-            for (Map.Entry<String, Book> entry : bukuDipinjam.entrySet()) {
-                System.out.println(entry.getKey());
-                Book book1 = entry.getValue();
-                System.out.println(" judul  : " + book1.getTitle() + "  Pengarang :" + book1.getAuthor());
-            }
-        System.out.println();
-        System.out.println("***********************");
-        System.out.println();
-
-        pinjam2.setDaftarBuku(bukuDipinjam);
-
-            System.out.println("Nama   : " + pinjam2.getNamaPeminjam());
-            System.out.println("Alamat : " + (pinjam2).getAlamatPeminjam());
-            for (Map.Entry<String, Book> entry : pinjam2.getDaftarBuku().entrySet()) {
-                System.out.println(entry.getKey());
-                Book book1 = entry.getValue();
-                System.out.println(" judul  : " + book1.getTitle() + "  Pengarang :" + book1.getAuthor());
-            }
-                System.out.println("Tambah data? ");
-                pjm = input.next();
-            }else{
-            System.out.println("Tidak Jadi Pinjam");
-            }
-                }
+    }
 
     public static void main(String[] args) {
 
